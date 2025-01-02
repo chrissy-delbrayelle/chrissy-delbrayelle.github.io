@@ -975,3 +975,75 @@ section.blog_section {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+#content {
+  filter: blur(10px); /* Appliquer un flou */
+  pointer-events: none; /* Désactiver les interactions */
+  opacity: 0.5; /* Ajouter un effet visuel supplémentaire */
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+/* Style de la boîte de mot de passe */
+#password-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* Masquer la boîte après le mot de passe correct */
+#password-container.hidden {
+  display: none;
+}
+
+
+/* Conteneur principal */
+.gallery-container {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+/* Section de l'image sélectionnée */
+.selected-image {
+  margin: 20px auto;
+  max-width: 800px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  background-color: white;
+}
+
+.selected-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Liste des photos */
+.photo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.photo-list img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.photo-list img:hover {
+  transform: scale(1.1);
+}
