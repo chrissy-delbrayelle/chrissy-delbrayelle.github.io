@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="./images/favicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Chrissy</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link href="./css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="./css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="./css/responsive.css" rel="stylesheet" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div id="password-container">
+    <h2>Entrez le mot de passe</h2>
+    <input type="password" id="password-input" placeholder="Mot de passe">
+    <button id="submit-password">Valider</button>
+    <p id="error-message" style="color: red; display: none;">Mot de passe incorrect !</p>
+  </div>
+
+  <!-- Contenu flouté -->
+  <div id="content">
+  
+
+
+  <!-- header section strats -->
+  <header class="header_section innerpage_header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="./index.html">
+          <span>
+            Chrissy
+          </span>
+        </a>
+        <div class="" id="">
+
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="./index.html">Acceuil</a>
+                <a href="./about.html">A propos</a>
+                <a href="./blog.html">Portraits Équestres</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+  <!-- blog section -->
+  <div class="gallery-container">
+    <!-- Image sélectionnée -->
+    <div class="selected-image" id="selected-image">
+      <!-- La première photo sera affichée ici automatiquement -->
+    </div>
+
+    <!-- Liste des photos -->
+    <div class="photo-list">
+      <img src="./images/b1.jpg" alt="Photo 1" data-photo="./images/b1.jpg">
+      <img src="./images/b2.jpg" alt="Photo 2" data-photo="./images/b2.jpg">
+      <img src="./images/b1.jpg" alt="Photo 3" data-photo="./images/b1.jpg">
+      <img src="./images/b2.jpg" alt="Photo 4" data-photo="./images/b2.jpg">
+    </div>
+  </div>
+
+  <script>
+    // Récupérer les éléments des miniatures
+    const photoList = document.querySelectorAll('.photo-list img');
+    const selectedImageContainer = document.getElementById('selected-image');
+
+    // Fonction pour mettre à jour l'image sélectionnée
+    function updateSelectedImage(photoSrc) {
+      selectedImageContainer.innerHTML = `<img src="${photoSrc}" alt="Image sélectionnée">`;
+    }
+
+    // Initialiser la première image lors du chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+      const firstPhoto = photoList[0].dataset.photo; // Prendre la première photo de la liste
+      updateSelectedImage(firstPhoto);
+    });
+
+    // Ajouter un écouteur à chaque miniature
+    photoList.forEach((photo) => {
+      photo.addEventListener('click', (e) => {
+        const selectedPhoto = e.target.dataset.photo;
+        updateSelectedImage(selectedPhoto);
+      });
+    });
+  </script>
+  <!-- end info_section -->
+
+  <!-- jQery -->
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="./js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="./js/custom.js"></script>
+
+
+
+
+  <script>
+    // Définir le mot de passe correct
+    const PASSWORD = "fanny";
+
+    // Récupérer les éléments du DOM
+    const passwordContainer = document.getElementById("password-container");
+    const passwordInput = document.getElementById("password-input");
+    const submitButton = document.getElementById("submit-password");
+    const errorMessage = document.getElementById("error-message");
+    const content = document.getElementById("content");
+
+    // Ajouter un écouteur d'événements au bouton de validation
+    submitButton.addEventListener("click", () => {
+      const userPassword = passwordInput.value;
+
+      // Vérifier si le mot de passe est correct
+      if (userPassword === PASSWORD) {
+        // Afficher le contenu et masquer la boîte de mot de passe
+        content.style.filter = "none";
+        content.style.pointerEvents = "auto";
+        content.style.opacity = "1";
+        passwordContainer.classList.add("hidden");
+      } else {
+        // Afficher un message d'erreur
+        errorMessage.style.display = "block";
+      }
+    });
+  </script>
+</body>
+
+</html>
